@@ -186,29 +186,42 @@ a.button { display: inline-block; }
 	0% { width: 0; }
 	100% { width: 90%; }
 }
-.tech-skill-list__item-nodejs {
+.tech-skill-list__item-java {
 	width: 75%;
-	-webkit-animation-name: bar-nodejs;
-	animation-name: bar-nodejs;
+	-webkit-animation-name: bar-java;
+	animation-name: bar-java;
 }
-@-webkit-keyframes bar-nodejs {
+@-webkit-keyframes bar-java {
 	0% { width: 0; }
 	100% { width: 75%; }
 }
-@keyframes bar-nodejs {
+@keyframes bar-java {
 	0% { width: 0; }
 	100% { width: 75%; }
 }
-.tech-skill-list__item-aspdotnet {
+.tech-skill-list__item-csharp {
+	width: 70%;
+	-webkit-animation-name: bar-csharp;
+	animation-name: bar-csharp;
+}
+@-webkit-keyframes bar-csharp {
+	0% { width: 0; }
+	100% { width: 70%; }
+}
+@keyframes bar-csharp {
+	0% { width: 0; }
+	100% { width: 70%; }
+}
+.tech-skill-list__item-gitsvn {
 	width: 60%;
-	-webkit-animation-name: bar-aspdotnet;
-	animation-name: bar-aspdotnet;
+	-webkit-animation-name: bar-gitsvn;
+	animation-name: bar-gitsvn;
 }
-@-webkit-keyframes bar-aspdotnet {
+@-webkit-keyframes bar-gitsvn {
 	0% { width: 0; }
 	100% { width: 60%; }
 }
-@keyframes bar-aspdotnet {
+@keyframes bar-gitsvn {
 	0% { width: 0; }
 	100% { width: 60%; }
 }
