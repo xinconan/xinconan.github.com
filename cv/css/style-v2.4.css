@@ -440,18 +440,19 @@ a.button { display: inline-block; }
 
 /* 页脚 */
 .footer { border-top: 1px solid #e8e8e8; color: #888; font-size: 0.875em; }
-.footer .boundary { padding: 15px 0; }
-.footer__qrcode__img { width: 60px; height: 60px; float: left; }
-.footer__qrcode__text { margin: 7px 0 0 10px; float: left; }
+.footer .boundary { padding: 10px 0; }
+.footer__qrcode__img,.footer__wxcode__img { width: 100px; height: 100px; float: left; }
+.footer__qrcode__text,.footer__wxcode__text { margin: 25px 10px 0 5px; float: left; }
+
 .footer__copyright p { text-align: left; }
 .footer__copyright__comment { font-size: 0.86em; }
 
 @media (max-width: 749px) {
-	.footer__copyright { margin-top: 8px; }
+	.footer__copyright { margin-top: 100px; }
 }
 
 @media (min-width: 750px) {
 	.footer__qrcode { float: left; }
-	.footer__copyright { margin-top: 7px; float: right; }
+	.footer__copyright { margin-top: 25px; float: right; }
 	.footer__copyright p { text-align: right; }
 }
