@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>XINCONAN的博客</title>
+  <subtitle>这个家伙很懒</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://xinconan.github.io/"/>
+  <updated>2016-10-09T10:28:20.744Z</updated>
+  <id>https://xinconan.github.io/</id>
+  
+  <author>
+    <name>XINCONAN</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jekyll转hexo</title>
+    <link href="https://xinconan.github.io/2016/10/09/change-to-hexo/"/>
+    <id>https://xinconan.github.io/2016/10/09/change-to-hexo/</id>
+    <published>2016-10-09T10:23:00.000Z</published>
+    <updated>2016-10-09T10:28:20.744Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前建的博客是基于<code>Jekyll</code>的，然后也没发过博客。现在试试<code>hexo</code>，以后就用它了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前建的博客是基于&lt;code&gt;Jekyll&lt;/code&gt;的，然后也没发过博客。现在试试&lt;code&gt;hexo&lt;/code&gt;，以后就用它了。&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
