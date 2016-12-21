@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xinconan.github.io/"/>
-  <updated>2016-10-25T07:17:15.274Z</updated>
+  <updated>2016-12-21T05:24:44.340Z</updated>
   <id>https://xinconan.github.io/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UC Browser Unsupported JavaScript</title>
+    <link href="https://xinconan.github.io/2016/12/21/UC-Browser-Unsupported-JavaScript/"/>
+    <id>https://xinconan.github.io/2016/12/21/UC-Browser-Unsupported-JavaScript/</id>
+    <published>2016-12-21T03:13:10.000Z</published>
+    <updated>2016-12-21T05:24:44.340Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文记录在开发过程中，使用UC Android浏览器遇到的一些问题。<br>不支持的JS方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.table();</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文记录在开发过程中，使用UC Android浏览器遇到的一些问题。&lt;br&gt;不支持的JS方法：&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;li
+    
+    </summary>
+    
+    
+      <category term="UC" scheme="https://xinconan.github.io/tags/UC/"/>
+    
+      <category term="JavaScript" scheme="https://xinconan.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>typeerror-cannot-read-property-insertbefore-of-null</title>
