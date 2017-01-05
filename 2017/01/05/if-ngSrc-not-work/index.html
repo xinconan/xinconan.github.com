@@ -44,7 +44,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="XINCONAN, XINCONAN的个人博客" />
+  <meta name="keywords" content="angular," />
 
 
 
@@ -62,15 +62,19 @@
 
 
 
-<meta name="description" content="向着炮火前进">
-<meta property="og:type" content="website">
-<meta property="og:title" content="XINCONAN的博客">
-<meta property="og:url" content="https://xinconan.github.io/index.html">
+<meta name="description" content="在Angular中，加载图片的方法是使用ng-src标签，如：1&amp;lt;img ng-src=&quot;&amp;#123;&amp;#123;imgUrl&amp;#125;&amp;#125;&quot;/&amp;gt;
+其中imgUrl为图片地址，如果图片正常能显示，那这么使用一点问题没有，但是，如果图片加载失败了（例如该图片已经不存在，从而出现404错误），在该放图片的地方就会出现一个难看的图片加载失败图标，如果想把这个图标换成你自定义的图片，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ng-src图片加载失败怎么办">
+<meta property="og:url" content="https://xinconan.github.io/2017/01/05/if-ngSrc-not-work/index.html">
 <meta property="og:site_name" content="XINCONAN的博客">
-<meta property="og:description" content="向着炮火前进">
+<meta property="og:description" content="在Angular中，加载图片的方法是使用ng-src标签，如：1&amp;lt;img ng-src=&quot;&amp;#123;&amp;#123;imgUrl&amp;#125;&amp;#125;&quot;/&amp;gt;
+其中imgUrl为图片地址，如果图片正常能显示，那这么使用一点问题没有，但是，如果图片加载失败了（例如该图片已经不存在，从而出现404错误），在该放图片的地方就会出现一个难看的图片加载失败图标，如果想把这个图标换成你自定义的图片，">
+<meta property="og:updated_time" content="2017-01-05T12:20:52.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XINCONAN的博客">
-<meta name="twitter:description" content="向着炮火前进">
+<meta name="twitter:title" content="ng-src图片加载失败怎么办">
+<meta name="twitter:description" content="在Angular中，加载图片的方法是使用ng-src标签，如：1&amp;lt;img ng-src=&quot;&amp;#123;&amp;#123;imgUrl&amp;#125;&amp;#125;&quot;/&amp;gt;
+其中imgUrl为图片地址，如果图片正常能显示，那这么使用一点问题没有，但是，如果图片加载失败了（例如该图片已经不存在，从而出现404错误），在该放图片的地方就会出现一个难看的图片加载失败图标，如果想把这个图标换成你自定义的图片，">
 
 
 
@@ -88,7 +92,7 @@
   };
 </script>
 
-  <title> XINCONAN的博客 </title>
+  <title> ng-src图片加载失败怎么办 | XINCONAN的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -119,9 +123,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -208,9 +210,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -230,10 +232,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/01/05/if-ngSrc-not-work/" itemprop="url">
-                  ng-src图片加载失败怎么办
-                </a>
+                ng-src图片加载失败怎么办
               
             
           </h1>
@@ -280,9 +279,7 @@
       
 
       
-        
-          
-            <p>在Angular中，加载图片的方法是使用<code>ng-src</code>标签，如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">ng-src</span>=<span class="string">"&#123;&#123;imgUrl&#125;&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+        <p>在Angular中，加载图片的方法是使用<code>ng-src</code>标签，如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">ng-src</span>=<span class="string">"&#123;&#123;imgUrl&#125;&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
 <p>其中<code>imgUrl</code>为图片地址，如果图片正常能显示，那这么使用一点问题没有，但是，如果图片加载失败了（例如该图片已经不存在，从而出现404错误），在该放图片的地方就会出现一个难看的图片加载失败图标，如果想把这个图标换成你自定义的图片，可以如下这么做：<br><strong>一、自定义指令（推荐）</strong><br><strong>HTML:</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">ng-src</span>=<span class="string">"&#123;&#123;imgUrl&#125;&#125;"</span> <span class="attr">err-src</span>=<span class="string">"&#123;&#123;errUrl&#125;&#125;"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
 <p><strong>JavaScript:</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">"MyApp"</span>, []);</div><div class="line"></div><div class="line">app.directive(<span class="string">'errSrc'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">link</span>: <span class="function"><span class="keyword">function</span>(<span class="params">scope, element, attrs</span>) </span>&#123;</div><div class="line">      element.bind(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (attrs.src != attrs.errSrc) &#123;</div><div class="line">          attrs.$set(‘src‘, attrs.errSrc);</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>这样一来，就把错误图标换成了你自己指定的地址<code>errUrl</code>，前提是<code>errUrl</code>这个图片是存在的。</p>
@@ -292,341 +289,58 @@
 <p><a href="http://www.mamicode.com/info-detail-653185.html" target="_blank" rel="external">AngularJS中如果ng-src 图片加载失败怎么办</a></p>
 </blockquote>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/21/UC-Browser-Unsupported-JavaScript/" itemprop="url">
-                  UC Browser Unsupported JavaScript
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-12-21T11:13:10+08:00" content="2016-12-21">
-              2016-12-21
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/12/21/UC-Browser-Unsupported-JavaScript/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/21/UC-Browser-Unsupported-JavaScript/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/angular/" rel="tag">#angular</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>本文记录在开发过程中，使用UC Android浏览器遇到的一些问题。<br>不支持的JS方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.table();</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/12/21/UC-Browser-Unsupported-JavaScript/" rel="next" title="UC Browser Unsupported JavaScript">
+                <i class="fa fa-chevron-left"></i> UC Browser Unsupported JavaScript
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/10/14/typeerror-cannot-read-property-insertbefore-of-null/" itemprop="url">
-                  typeerror-cannot-read-property-insertbefore-of-null
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-14T14:28:43+08:00" content="2016-10-14">
-              2016-10-14
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/14/typeerror-cannot-read-property-insertbefore-of-null/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/14/typeerror-cannot-read-property-insertbefore-of-null/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>这两天在使用<code>angular</code>进行开发的时候，出现了如下错误：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">TypeError</span>: Cannot read property <span class="string">'insertBefore'</span> <span class="keyword">of</span> <span class="literal">null</span></div></pre></td></tr></table></figure></p>
-<p>在网上找了一些资料，总结了下，需要在<code>ng-repeat</code>、<code>ng-if</code>等标签外面再加个<code>div</code>标签，<br>加上了就没有报错。如果当前页面没有用到<code>ng-repeat</code>、<code>ng-if</code>之类的标签，就需要从父路由中找了。<br>错误前：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-if</span>=<span class="string">"view.type !== 'ali'"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>其他内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>修改后：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-if</span>=<span class="string">"view.type !== 'ali'"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>其他内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/09/change-to-hexo/" itemprop="url">
-                  jekyll转hexo
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-09T18:23:00+08:00" content="2016-10-09">
-              2016-10-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/09/change-to-hexo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/09/change-to-hexo/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>之前建的博客是基于<code>Jekyll</code>的，然后也没发过博客。现在试试<code>hexo</code>，以后就用它了。</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -634,6 +348,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/05/if-ngSrc-not-work/"
+           data-title="ng-src图片加载失败怎么办" data-url="https://xinconan.github.io/2017/01/05/if-ngSrc-not-work/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -653,8 +375,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -721,6 +452,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考："><span class="nav-number">1.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -824,6 +566,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
