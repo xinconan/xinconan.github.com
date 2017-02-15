@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//cdn.bootcss.com/jquery/2.1.2/jquery.min.js"></script>
+    
+</head>
+<body>
+    <script>
+        $.ajax({
+            type: 'post',
+            url: 'http://yt.21mhealth.com/web/217/hospitals/147/reg/getDeptList',
+            data: {
+                sectId: '内科系统1',
+                hosDistId: 83
+            },
+            dataType: 'json',
+            success: function (back) {
+                alert(1);
+            },
+            error: function () {
+                alert(2);
+            },
+            complete:function(){
+                alert(3);
+            }
+        });
+
+    </script>
+</body>
+</html>
