@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xinconan.github.io/"/>
-  <updated>2017-01-05T12:20:52.915Z</updated>
+  <updated>2017-03-30T12:19:48.546Z</updated>
   <id>https://xinconan.github.io/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用svg创建icon-font图标</title>
+    <link href="https://xinconan.github.io/2017/03/29/create-icon-font-with-svg/"/>
+    <id>https://xinconan.github.io/2017/03/29/create-icon-font-with-svg/</id>
+    <published>2017-03-29T11:43:02.000Z</published>
+    <updated>2017-03-30T12:19:48.546Z</updated>
+    
+    <content type="html"><![CDATA[<p>在开发webapp时，经常会用到UI给的小图标，UI一般会提供png和svg两种格式。使用png经常需要考虑不同分辨率和dpr设备的差异，一个图标UI可能会提供两到三种不同大小的图片，这样处理很不方便。直接使用svg的话，svg单独一个文件会耗网络请求，嵌入到html中又会使html变得臃肿，重复利用率不高。使用icon-font可以直接使用class的方式，显示图标，而且和字体一样，可以设置大小和颜色，非常方便。</p>
+<p>介绍一种可以直接将svg创建icon-font字体的网站，<a href="https://icomoon.io/app" target="_blank" rel="external">https://icomoon.io/app</a>，如下图所示，直接导入UI给的svg（最好提前用class的方式进行命名，方便后续使用）。<br><img src="https://xinconan.oschina.io/blogimages/icomoon.png" alt="icomoon.io"><br>选择要导出的图标，点击“生成字体”按钮，在该页面可以预览要导出的字体图标及对应的编码。<br><img src="https://xinconan.oschina.io/blogimages/icomoon_preview.png" alt="icomoon.io"><br>点击设置，可以设置字体的名称和class前缀，还可以生成对应的sass、stylus、less文件等。<br><img src="https://xinconan.oschina.io/blogimages/icomoon_config.png" alt="icomoon.io"><br>点击“download”，就可以下载字体，然后进行使用啦。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在开发webapp时，经常会用到UI给的小图标，UI一般会提供png和svg两种格式。使用png经常需要考虑不同分辨率和dpr设备的差异，一个图标UI可能会提供两到三种不同大小的图片，这样处理很不方便。直接使用svg的话，svg单独一个文件会耗网络请求，嵌入到html中又会
+    
+    </summary>
+    
+    
+      <category term="icon-font" scheme="https://xinconan.github.io/tags/icon-font/"/>
+    
+  </entry>
   
   <entry>
     <title>ng-src图片加载失败怎么办</title>

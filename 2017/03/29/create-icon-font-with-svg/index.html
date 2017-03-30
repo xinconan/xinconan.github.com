@@ -44,7 +44,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="angular," />
+  <meta name="keywords" content="icon-font," />
 
 
 
@@ -62,19 +62,20 @@
 
 
 
-<meta name="description" content="这两天在使用angular进行开发的时候，出现了如下错误：1TypeError: Cannot read property &apos;insertBefore&apos; of null
-在网上找了一些资料，总结了下，需要在ng-repeat、ng-if等标签外面再加个div标签，加上了就没有报错。如果当前页面没有用到ng-repeat、ng-if之类的标签，就需要从父路由中找了。错误前：123&amp;lt;div ng">
+<meta name="description" content="在开发webapp时，经常会用到UI给的小图标，UI一般会提供png和svg两种格式。使用png经常需要考虑不同分辨率和dpr设备的差异，一个图标UI可能会提供两到三种不同大小的图片，这样处理很不方便。直接使用svg的话，svg单独一个文件会耗网络请求，嵌入到html中又会使html变得臃肿，重复利用率不高。使用icon-font可以直接使用class的方式，显示图标，而且和字体一样，可以设置大小">
 <meta property="og:type" content="article">
-<meta property="og:title" content="typeerror-cannot-read-property-insertbefore-of-null">
-<meta property="og:url" content="https://xinconan.github.io/2016/10/14/typeerror-cannot-read-property-insertbefore-of-null/index.html">
+<meta property="og:title" content="使用svg创建icon-font图标">
+<meta property="og:url" content="https://xinconan.github.io/2017/03/29/create-icon-font-with-svg/index.html">
 <meta property="og:site_name" content="XINCONAN的博客">
-<meta property="og:description" content="这两天在使用angular进行开发的时候，出现了如下错误：1TypeError: Cannot read property &apos;insertBefore&apos; of null
-在网上找了一些资料，总结了下，需要在ng-repeat、ng-if等标签外面再加个div标签，加上了就没有报错。如果当前页面没有用到ng-repeat、ng-if之类的标签，就需要从父路由中找了。错误前：123&amp;lt;div ng">
-<meta property="og:updated_time" content="2016-10-25T07:17:15.274Z">
+<meta property="og:description" content="在开发webapp时，经常会用到UI给的小图标，UI一般会提供png和svg两种格式。使用png经常需要考虑不同分辨率和dpr设备的差异，一个图标UI可能会提供两到三种不同大小的图片，这样处理很不方便。直接使用svg的话，svg单独一个文件会耗网络请求，嵌入到html中又会使html变得臃肿，重复利用率不高。使用icon-font可以直接使用class的方式，显示图标，而且和字体一样，可以设置大小">
+<meta property="og:image" content="https://xinconan.oschina.io/blogimages/icomoon.png">
+<meta property="og:image" content="https://xinconan.oschina.io/blogimages/icomoon_preview.png">
+<meta property="og:image" content="https://xinconan.oschina.io/blogimages/icomoon_config.png">
+<meta property="og:updated_time" content="2017-03-30T12:19:48.546Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="typeerror-cannot-read-property-insertbefore-of-null">
-<meta name="twitter:description" content="这两天在使用angular进行开发的时候，出现了如下错误：1TypeError: Cannot read property &apos;insertBefore&apos; of null
-在网上找了一些资料，总结了下，需要在ng-repeat、ng-if等标签外面再加个div标签，加上了就没有报错。如果当前页面没有用到ng-repeat、ng-if之类的标签，就需要从父路由中找了。错误前：123&amp;lt;div ng">
+<meta name="twitter:title" content="使用svg创建icon-font图标">
+<meta name="twitter:description" content="在开发webapp时，经常会用到UI给的小图标，UI一般会提供png和svg两种格式。使用png经常需要考虑不同分辨率和dpr设备的差异，一个图标UI可能会提供两到三种不同大小的图片，这样处理很不方便。直接使用svg的话，svg单独一个文件会耗网络请求，嵌入到html中又会使html变得臃肿，重复利用率不高。使用icon-font可以直接使用class的方式，显示图标，而且和字体一样，可以设置大小">
+<meta name="twitter:image" content="https://xinconan.oschina.io/blogimages/icomoon.png">
 
 
 
@@ -92,7 +93,7 @@
   };
 </script>
 
-  <title> typeerror-cannot-read-property-insertbefore-of-null | XINCONAN的博客 </title>
+  <title> 使用svg创建icon-font图标 | XINCONAN的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -242,7 +243,7 @@
             
             
               
-                typeerror-cannot-read-property-insertbefore-of-null
+                使用svg创建icon-font图标
               
             
           </h1>
@@ -254,8 +255,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-14T14:28:43+08:00" content="2016-10-14">
-              2016-10-14
+            <time itemprop="dateCreated" datetime="2017-03-29T19:43:02+08:00" content="2017-03-29">
+              2017-03-29
             </time>
           </span>
 
@@ -282,9 +283,8 @@
       
 
       
-        <p>这两天在使用<code>angular</code>进行开发的时候，出现了如下错误：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">TypeError</span>: Cannot read property <span class="string">'insertBefore'</span> <span class="keyword">of</span> <span class="literal">null</span></div></pre></td></tr></table></figure></p>
-<p>在网上找了一些资料，总结了下，需要在<code>ng-repeat</code>、<code>ng-if</code>等标签外面再加个<code>div</code>标签，<br>加上了就没有报错。如果当前页面没有用到<code>ng-repeat</code>、<code>ng-if</code>之类的标签，就需要从父路由中找了。<br>错误前：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-if</span>=<span class="string">"view.type !== 'ali'"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>其他内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>修改后：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-if</span>=<span class="string">"view.type !== 'ali'"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>其他内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+        <p>在开发webapp时，经常会用到UI给的小图标，UI一般会提供png和svg两种格式。使用png经常需要考虑不同分辨率和dpr设备的差异，一个图标UI可能会提供两到三种不同大小的图片，这样处理很不方便。直接使用svg的话，svg单独一个文件会耗网络请求，嵌入到html中又会使html变得臃肿，重复利用率不高。使用icon-font可以直接使用class的方式，显示图标，而且和字体一样，可以设置大小和颜色，非常方便。</p>
+<p>介绍一种可以直接将svg创建icon-font字体的网站，<a href="https://icomoon.io/app" target="_blank" rel="external">https://icomoon.io/app</a>，如下图所示，直接导入UI给的svg（最好提前用class的方式进行命名，方便后续使用）。<br><img src="https://xinconan.oschina.io/blogimages/icomoon.png" alt="icomoon.io"><br>选择要导出的图标，点击“生成字体”按钮，在该页面可以预览要导出的字体图标及对应的编码。<br><img src="https://xinconan.oschina.io/blogimages/icomoon_preview.png" alt="icomoon.io"><br>点击设置，可以设置字体的名称和class前缀，还可以生成对应的sass、stylus、less文件等。<br><img src="https://xinconan.oschina.io/blogimages/icomoon_config.png" alt="icomoon.io"><br>点击“download”，就可以下载字体，然后进行使用啦。</p>
 
       
     </div>
@@ -306,7 +306,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/angular/" rel="tag">#angular</a>
+            <a href="/tags/icon-font/" rel="tag">#icon-font</a>
           
         </div>
       
@@ -315,17 +315,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/10/09/change-to-hexo/" rel="next" title="jekyll转hexo">
-                <i class="fa fa-chevron-left"></i> jekyll转hexo
+              <a href="/2017/01/05/if-ngSrc-not-work/" rel="next" title="ng-src图片加载失败怎么办">
+                <i class="fa fa-chevron-left"></i> ng-src图片加载失败怎么办
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/21/UC-Browser-Unsupported-JavaScript/" rel="prev" title="UC Browser Unsupported JavaScript">
-                UC Browser Unsupported JavaScript <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
