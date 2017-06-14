@@ -1,0 +1,218 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+  <title>豆瓣同城 - 音乐 - 北京 | Just a iScroll Demo</title>
+  <link rel="stylesheet" href="http://amazeui.org/css/amazeui.css"/>
+  <style>
+    html,
+    body,
+    .page {
+      height: 100%;
+    }
+
+    #wrapper {
+      position: absolute;
+      top: 49px;
+      bottom: 0;
+      overflow: hidden;
+      margin: 0;
+      width: 100%;
+      padding: 0 8px;
+      background-color: #f8f8f8;
+    }
+
+    .am-list {
+      margin: 0;
+    }
+
+    .am-list > li {
+      background: none;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .pull-action {
+      text-align: center;
+      height: 45px;
+      line-height: 45px;
+      color: #999;
+    }
+
+    .pull-action .am-icon-spin {
+      display: none;
+    }
+
+    .pull-action.loading .am-icon-spin {
+      display: block;
+    }
+
+    .pull-action.loading .pull-label {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header data-am-widget="header" class="am-header am-header-default">
+    <h1 class="am-header-title">
+      同城 - 音乐
+    </h1>
+  </header>
+
+  <div id="wrapper" data-am-widget="list_news"
+       class="am-list-news am-list-news-default">
+    <div class="am-list-news-bd">
+      <div class="pull-action loading" id="pull-down">
+        <span class="am-icon-arrow-down pull-label"
+              id="pull-down-label"> 下拉刷新</span>
+        <span class="am-icon-spinner am-icon-spin"></span>
+      </div>
+      <ul class="am-list" id="events-list">
+        <li class="am-list-item-desced">
+          <div class="am-list-item-text">
+            正在加载内容...
+          </div>
+        </li>
+      </ul>
+      <div class="pull-action" id="pull-up">
+        <span class="am-icon-arrow-down pull-label"
+              id="pull-up-label"> 上拉加载更多</span>
+        <span class="am-icon-spinner am-icon-spin"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="http://amazeui.org/js/jquery.min.js"></script>
+<script src="http://amazeui.org/js/handlebars.min.js"></script>
+<script type="text/x-handlebars-template" id="tpi-list-item">
+  {{#each this}}
+  <li class="am-list-item-desced" data-id="{{id}}">
+    <a href="{{alt}}" class="am-list-item-hd" target="_blank">{{title}}</a>
+
+    <div class="am-list-item-text">{{content}}</div>
+  </li>
+  {{/each}}
+</script>
+<script src="http://amazeui.org/js/amazeui.min.js"></script>
+<script>
+
+    $(function() {
+      var $main = $('#wrapper');
+      var $list = $main.find('#events-list');
+      var $pullDown = $main.find('#pull-down');
+      var $pullDownLabel = $main.find('#pull-down-label');
+      var $pullUp = $main.find('#pull-up');
+      var topOffset = -$pullDown.outerHeight();
+      var myScroll,
+            hasNext = true;
+      
+
+      var compiler = Handlebars.compile($('#tpi-list-item').html());
+    //   this.prev = this.next = this.start = options.params.start;
+    var start = 100;
+      var total = null;
+
+      var renderList = function() {
+        var _this = this;
+
+        $.getJSON('https://api.douban.com/v2/event/list?callback=?&type=music&count=10&loc=beijing&start='+start).then(function(data) {
+          console.log(data);
+          total = data.total;
+          var html = compiler(data.events);
+          start += 10;
+          
+        $list.append(html);
+        
+        // hasNext = data.hasNext;
+        
+        if(myScroll) {
+            setTimeout(function() {
+                myScroll.refresh();
+            }, 100);
+        }else{
+            initScroll();
+        }  
+
+          // refresh iScroll
+          
+        }, function() {
+          console.log('Error...')
+        }).always(function() {
+          
+        });
+      };
+
+      var setLoading = function($el) {
+        $el.addClass('loading');
+      };
+
+      var resetLoading = function($el) {
+        $el.removeClass('loading');
+      };
+
+      var initScroll = function() {
+        myScroll = new $.AMUI.iScroll('#wrapper', {
+          click: true
+        });
+        // myScroll.scrollTo(0, topOffset);
+        var _this = this;
+        var pullFormTop = false;
+        var pullStart;
+
+        myScroll.on('scrollStart', function() {
+          if (this.y >= topOffset) {
+            pullFormTop = true;
+          }
+
+          pullStart = this.y;
+          // console.log(this);
+        });
+
+        myScroll.on('scrollEnd', function() {
+          if (pullFormTop && this.directionY === -1) {
+            handlePullDown();
+          }
+          pullFormTop = false;
+
+          // pull up to load more
+          if (pullStart === this.y && (this.directionY === 1) && hasNext) {
+            handlePullUp();
+          }
+        });
+      };
+
+      var handlePullDown = function() {
+        console.log('handle pull down');
+        if (this.prev > 0) {
+          setLoading($pullDown);
+        //   this.prev -= options.params.count;
+        //   renderList(this.prev, 'refresh');
+        } else {
+          console.log('别刷了，没有了');
+        }
+      };
+
+      var handlePullUp = function() {
+        console.log('handle pull up');
+        if (hasNext) {
+          setLoading($pullUp);
+          
+          renderList();
+        } else {
+          
+          // this.iScroll.scrollTo(0, topOffset);
+        }
+      }
+
+      renderList();
+      
+    });
+
+    
+
+</script>
+</body>
+</html>
