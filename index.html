@@ -241,6 +241,106 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/22/pxtorem在webpack中出现的问题/" itemprop="url">
+                  pxtorem在webpack中出现的问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-22T11:01:16+08:00" content="2017-06-22">
+              2017-06-22
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在使用<a href="https://mobile.ant.design" target="_blank" rel="external">antd-mobile</a>开发新项目，使用了它提供的<a href="https://github.com/ant-design/ant-design-mobile/wiki/antd-mobile-0.8-%E4%BB%A5%E4%B8%8A%E7%89%88%E6%9C%AC%E3%80%8C%E9%AB%98%E6%B8%85%E3%80%8D%E6%96%B9%E6%A1%88%E8%AE%BE%E7%BD%AE" target="_blank" rel="external">高清方案</a>。按照其设计规范，开发过程中使用<code>px</code>为css单位，build根据<code>1rem=100px</code>(dpr=2)换算，所以用到了<a href="https://github.com/cuth/postcss-pxtorem" target="_blank" rel="external">postcss-pxtorem</a>。</p>
+<p>以下是项目中webpack.config.js的主要配置：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">loaders: [</div><div class="line">&#123;</div><div class="line">    <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>,</div><div class="line">    <span class="attr">loader</span>: ExtractTextPlugin.extract(<span class="string">'style-loader'</span>, <span class="string">'css-loader?sourceMap!sass-loader!postcss'</span>)</div><div class="line"> &#125;],</div><div class="line"><span class="attr">postcss</span>: [</div><div class="line">    autoprefixer(&#123;<span class="attr">browsers</span>: [<span class="string">'last 5 versions'</span>]&#125;),</div><div class="line">    pxtorem(&#123;<span class="attr">rootValue</span>: <span class="number">100</span>, <span class="attr">propWhiteList</span>: []&#125;)</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>然后出现了个“诡异”的问题，正常的<code>.scss</code>文件中的<code>px</code>都正常转成<code>rem</code>了，但是当<code>scss</code>文件中import了其他的<code>scss</code>文件，引入的文件中的px不会被转成<code>rem</code>。当时认为是<code>pxtorem</code>插件的问题，还傻傻的去<code>pxtorem</code>的GitHub上提了个<a href="https://github.com/cuth/postcss-pxtorem/issues/38" target="_blank" rel="external">issue</a>。后面在<a href="https://github.com/postcss/postcss-loader" target="_blank" rel="external">postcss-loader</a>的文档上找到了问题：</p>
+<blockquote>
+<p>You can use it standalone or in conjunction with <code>css-loader</code> (recommended). Use it after <code>css-loader</code> and <code>style-loader</code>, but before other preprocessor loaders like e.g <code>sass|less|stylus-loader</code>, if you use any.</p>
+</blockquote>
+<p>就是<code>postcss</code>要放到<code>sass-loader</code>之前执行，所以改成下面问题就解决了：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>,</div><div class="line">    <span class="attr">loader</span>: ExtractTextPlugin.extract(<span class="string">'style-loader'</span>, <span class="string">'css-loader?sourceMap!postcss!sass-loader'</span>)</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/03/29/create-icon-font-with-svg/" itemprop="url">
                   使用svg创建icon-font图标
                 </a>
@@ -742,7 +842,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -752,7 +852,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
