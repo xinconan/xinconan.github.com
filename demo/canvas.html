@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="email=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script>
+    (function(win) {
+        var docEl = document.documentElement;
+        var metaEl = document.querySelector('meta[name="viewport"]');
+        var fontEl = document.createElement('style'),
+                dpr, scale, tid;
+        if (metaEl) {
+            var match = metaEl.getAttribute('content').match(/initial\-scale=(["']?)([\d\.]+)\1?/);
+            if (match) {
+                scale = parseFloat(match[2]);
+                dpr = 1 / scale;
+            }
+        }
+        if (!dpr && !scale) {
+            dpr = win.devicePixelRatio || 1;
+            scale = 1 / dpr;
+        }
+        docEl.setAttribute('data-dpr', dpr);
+        docEl.firstElementChild.appendChild(fontEl);
+        if (!metaEl) {
+            metaEl = document.createElement('meta');
+            metaEl.setAttribute('name', 'viewport');
+            var matches = navigator.userAgent.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i);
+            var UCversion = navigator.userAgent.match(/U3\/((\d+|\.){5,})/i);
+
+            if (!matches || matches && matches[1] > 534 || UCversion && parseInt(UCversion[1].split('.').join(''), 10) >= 80) {
+                metaEl.setAttribute('content', 'width=device-width,user-scalable=no,initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale);
+                if (docEl.firstElementChild) {
+                    docEl.firstElementChild.appendChild(metaEl);
+                } else {
+                    var wrap = document.createElement('div');
+                    wrap.appendChild(metaEl);
+                    document.write(wrap.innerHTML);
+                }
+                if (docEl.clientWidth == 980 || docEl.clientWidth == 1024) {
+                    metaEl.setAttribute('content', 'target-densitydpi=device-dpi,width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1');
+                }
+            } else {
+                metaEl.setAttribute('content', 'width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1');
+                if (docEl.firstElementChild) {
+                    docEl.firstElementChild.appendChild(metaEl);
+                } else {
+                    var wrap2 = document.createElement('div');
+                    wrap2.appendChild(metaEl);
+                    document.write(wrap2.innerHTML);
+                }
+
+                dpr = 1;
+            }
+        }
+
+        function setUnitA() {
+            win.rem = 10 * dpr;
+            fontEl.innerHTML = 'html{font-size:' + win.rem + 'px!important;}';
+        }
+        win.dpr = dpr;
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(setUnitA, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(tid);
+                tid = setTimeout(setUnitA, 300);
+            }
+        }, false);
+        setUnitA();
+    })(window);
+</script>
+
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    html,body{
+        margin: 0;
+        padding: 0;
+    }
+    .badge{
+        background: #f00;
+        border-radius: 0.75rem;
+        font-size: 1rem;
+        color: #fff;
+        padding: 0.1rem 0.5rem;
+        position: relative;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+    .badge:after{
+        content: "";
+        position: absolute;
+        bottom: -0.2rem;
+        left: 0.2rem;
+        border-width: 0 0 0.3rem 0.2rem;
+        border-style: solid;
+        border-color: transparent #fff;
+        display: block;
+        width: 0;
+    }
+    .badge:before{
+        content: "";
+        position: absolute;
+        left: 0.2rem;
+        bottom: -0.2rem;
+        border-width: 0 0 0.3rem 1rem;
+        border-style: solid;
+        border-color: transparent #f00;
+        display: block;
+        width: 0;
+    }
+    .header{
+        background-image: linear-gradient(-180deg, #01B7C4 0%, #23CBD3 100%);
+        height:25rem;
+        padding-top: 2rem;
+    }
+    #canvas{
+        width: 13.3rem;
+        height: 10rem;
+    }
+</style>
+</head>
+
+<body>
+<div>
+    <span class="badge">水电煤</span>
+    <section class="header">
+        <div style="margin:0 auto;text-align:center;">
+            <canvas id="canvas" width="266" height="200"></canvas>
+        </div>
+    </section>
+</div>
+
+<script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+<script>
+$(function(){
+    var canvas = document.getElementById('canvas'),
+        ctx = canvas.getContext('2d'),
+        cWidth = canvas.width,
+        cHeight = canvas.height,
+        deg0 = Math.PI / 9,
+        averageDeg = Math.PI * 4.8/180, // 每段弧度
+        radius =cWidth/2-1;
+    var innerRadius =radius-10;
+
+    var precent = 50;
+
+    
+
+    var angle = 0,
+        dotSpeed = 0.03;
+    var dot = new Dot();
+    var averageNum = Math.floor(precent/2);
+    var aim =  averageNum * averageDeg;
+    var innerAngle = 0, innerCount =0;
+    var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+    var reqFrame;
+
+    (function drawFrame() {
+        // 画布初始化
+    ctx.save();
+    ctx.clearRect(0, 0, cWidth, cHeight);
+    ctx.translate(cWidth / 2, radius+2); // 将画布原点移到中心点位置(圆的中心)
+    ctx.rotate(Math.PI*150/180); // 旋转150度
+
+    
+        // if(angle>0) {
+        //     ctx.save();
+        //     ctx.translate(radius * Math.cos(angle-averageDeg)+3, radius * Math.sin(angle-averageDeg)+3);
+        //     ctx.rotate(-Math.PI * 150/180);
+        //     ctx.clearRect(0, 0, 6, 6);
+        //     ctx.restore();
+        //     ctx.save();
+        //     ctx.beginPath();
+        //     ctx.lineWidth = 2;
+        //     ctx.strokeStyle = 'rgba(255, 255, 255, .5)';
+        //     ctx.arc(0, 0, radius, 0, angle, false);
+        //     ctx.stroke();
+        //     ctx.restore();
+        // }
+        dot.x = radius * Math.cos(innerAngle);
+        dot.y = radius * Math.sin(innerAngle);
+
+        // if (angle < aim) {
+        //     angle += averageDeg;
+        // }
+        dot.draw(ctx);
+
+        
+        // 外层弧线（深颜色）
+        ctx.save();
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
+        ctx.arc(0, 0, radius, 0, innerAngle, false);
+        ctx.stroke();
+        ctx.restore();
+
+        
+
+        reqFrame = requestAnimationFrame(drawFrame);
+
+        // 内部循环圆点
+        for(var i = 0; i< innerCount;i++){
+            var _angle = (i*averageDeg);
+            var _dot = new Dot();
+            _dot.x = innerRadius * Math.cos(_angle);
+            _dot.y = innerRadius * Math.sin(_angle);
+            _dot.draw(ctx);
+        }
+        // 内部圆点
+        var indot = new Dot();
+        indot.x =innerRadius * Math.cos(innerAngle);
+        indot.y =innerRadius * Math.sin(innerAngle);
+        if(innerCount <averageNum) {
+            innerAngle +=averageDeg;
+            // angle += averageDeg;
+            innerCount ++;
+        }else{
+            cancelAnimationFrame(reqFrame)
+        }
+        console.log(innerCount)
+        indot.draw(ctx);
+    
+    // 内层圆点，循环时乘以10倍，计算缩小10倍
+    for(var deg = 0;deg<= 2400;deg=deg+48){
+        var _angle = (Math.PI/1800)*deg;
+        var _dot = new Dot('rgba(255, 255, 255, .2)');
+        _dot.x = innerRadius * Math.cos(_angle);
+        _dot.y = innerRadius * Math.sin(_angle);
+        _dot.draw(ctx);
+    }
+    // 最外层弧线
+    ctx.save();
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(255, 255, 255, .2)';
+    ctx.lineWidth = 2;
+    ctx.arc(0, 0, radius, 0, Math.PI*240/180, false);
+    ctx.stroke();
+    ctx.restore();
+    ctx.restore();
+    })();
+    
+
+
+
+
+    // 画点
+    function Dot(rgba) {
+        this.x = 0;
+        this.y = 0;
+        this.draw = function (ctx) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.fillStyle = rgba ||'rgba(255, 255, 255, 1)';
+            ctx.arc(this.x, this.y, 3, 0, Math.PI * 2, false);
+            ctx.fill();
+            ctx.restore();
+        };
+    }
+});
+</script>
+</body>
+
+</html>
