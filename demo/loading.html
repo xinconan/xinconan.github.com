@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loading</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="data-bizType" content="healthcare"/>
+    <meta name="data-aspm" content="a66"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <script>!function(e){function t(a){if(i[a])return i[a].exports;var n=i[a]={exports:{},id:a,loaded:!1};return e[a].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=window;t["default"]=i.flex=function(e,t){var a=e||100,n=t||1,r=i.document,o=navigator.userAgent,d=o.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),l=o.match(/U3\/((\d+|\.){5,})/i),c=l&&parseInt(l[1].split(".").join(""),10)>=80,p=navigator.appVersion.match(/(iphone|ipad|ipod)/gi),s=i.devicePixelRatio||1;p||d&&d[1]>534||c||(s=1);window.dpr =s;var u=1/s,m=r.querySelector('meta[name="viewport"]');m||(m=r.createElement("meta"),m.setAttribute("name","viewport"),r.head.appendChild(m)),m.setAttribute("content","width=device-width,user-scalable=no,initial-scale="+u+",maximum-scale="+u+",minimum-scale="+u),r.documentElement.style.fontSize=a/2*s*n+"px"},e.exports=t["default"]}]);flex(100,1);</script>
+    <!--<link rel="stylesheet" href="../public/build/common.css">-->
+</head>
+<body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-weight: normal;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box; }
+
+    body, html {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: PingFangSC-Regular; }
+    html {
+        line-height: 1; /* 1 */
+        -ms-text-size-adjust: 100%; /* 2 */
+        -webkit-text-size-adjust: 100%; /* 2 */
+    }
+    body{
+        font-size: 0.32rem;
+    }
+    p, h1, h2, h3 {
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0; }
+
+    svg:not(:root) {
+        overflow: hidden;
+    }
+    .yt-mask-layer{
+        position:fixed;z-index: 1000;background:#01B7C4;width: 100%;height: 100%;
+    }
+    .mask-content{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+    .mask-content img{
+        width: 0.85rem;
+        height: 0.72rem;
+    }
+    .mask-content p{
+        font-size: 0.28rem;
+        color: #FFFFFF;
+        line-height: 0.4rem;
+        margin-top: 0.19rem;
+    }
+    .mask-height{
+        height:1rem;
+    }
+</style>
+<section class="yt-mask-layer">
+    <div class="mask-content">
+        <svg style="width:0.85rem;height:0.72rem" viewBox="0 0 85 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <clipPath id="logoClip">
+                    <path d="M340.685179,322.538071 C343.019112,322.538071 344.911139,320.63543 344.911139,318.288405 C344.911139,315.941379 343.019112,314.038739 340.685179,314.038739 C338.351246,314.038739 336.459219,315.941379 336.459219,318.288405 C336.459219,320.63543 338.351246,322.538071 340.685179,322.538071 Z M317.273162,293.025605 L317.273162,280.636088 C317.273162,279.736561 318.002373,279.007351 318.901899,279.007351 L321.677781,279.007351 C322.577308,279.007351 323.306518,279.736561 323.306518,280.636088 L323.306518,280.636088 L323.306518,293.025605 L335.696035,293.025605 C336.595561,293.025605 337.324772,293.754815 337.324772,294.654341 L337.324772,297.430224 C337.324772,298.32975 336.595561,299.05896 335.696035,299.05896 L323.306518,299.05896 L323.306518,311.448477 C323.306518,312.348004 322.577308,313.077214 321.677781,313.077214 L318.901899,313.077214 C318.002373,313.077214 317.273162,312.348004 317.273162,311.448477 L317.273162,299.05896 L304.883645,299.05896 C303.984119,299.05896 303.254909,298.32975 303.254909,297.430224 L303.254909,294.654341 C303.254909,293.754815 303.984119,293.025605 304.883645,293.025605 L317.273162,293.025605 Z M349.060054,311.572666 C350.524984,313.41402 351.400636,315.748878 351.400636,318.288405 C351.400636,324.231088 346.605606,329.053017 340.685179,329.053017 C339.586483,329.053017 338.526545,328.886955 337.528816,328.578486 C335.55199,331.474645 332.240524,335.034808 329.959853,336.597255 C321.408749,342.45582 309.752863,340.233549 303.939984,331.652438 L280.868765,298.044419 C275.046495,289.449975 277.254676,277.737687 285.802809,271.881832 C289.619664,269.266814 294.175261,268.192143 298.66677,268.756022 C299.718344,268.88804 300.757349,269.10916 301.771928,269.416928 C303.487353,269.937296 304.457787,271.755217 303.939452,273.47737 C303.421117,275.199522 301.610297,276.173761 299.894872,275.653394 C299.230572,275.451881 298.550113,275.307067 297.861512,275.220618 C294.925111,274.851972 291.958739,275.551743 289.460741,277.263181 C283.870463,281.092773 282.425411,288.757388 286.223526,294.364021 L309.294786,327.9721 C313.101739,333.591942 320.715203,335.0435 326.301853,331.215953 C327.91875,330.108246 330.769147,326.982777 332.205465,324.870216 C330.803694,323.050178 329.969722,320.766755 329.969722,318.288405 C329.969722,312.345721 334.764752,307.523792 340.685179,307.523792 C341.720593,307.523792 342.721586,307.671275 343.668529,307.946444 L352.853642,294.381246 C356.6635,288.757388 355.218448,281.092773 349.62817,277.263181 C346.530178,275.140673 342.715747,274.585098 339.194039,275.653394 C337.478614,276.173761 335.667794,275.199522 335.149459,273.47737 C334.631124,271.755217 335.601558,269.937296 337.316983,269.416928 C342.698279,267.784533 348.549677,268.636795 353.286102,271.881832 C361.834235,277.737687 364.042416,289.449975 358.220146,298.044419 L349.060054,311.572666 Z" id="logo"
+                          transform="translate(-277.000000, -268.000000)" fill-rule="nonzero" fill="#FFFFFF"
+                          stroke-width="1"></path>
+                </clipPath>
+                <g id="shadow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <rect id="svg-rect-up" x="0" y="0" fill="#FFFFFF" stroke="none"
+                          width="85" height="72"/>
+                    <g id="shadow-up" transform="translate(-28.000000, -90.000000)" fill="#64D3DB">
+                        <path d="M19,140 C35.6666667,132 52.3333333,128 69,128 C85.6666667,128 102.333333,132 119,140 L119,240 L19,240 L19,140 Z" id="上-绿底"></path>
+                    </g>
+                    <g id="shadow-down" transform="translate(-148.000000, -260.000000)" fill="#64D3DB">
+                        <path d="M148,145 C164.666667,152.333333 181.333333,156 198,156 C214.666667,156 231.333333,152.333333 248,145 L248,245 L148,245 L148,145 Z" id="下-绿底"></path>
+                    </g>
+                </g>
+            </defs>
+            <g id="svg-up">
+                <use xlink:href="#shadow" style="clip-path:url(#logoClip);"/>
+            </g>
+        </svg>
+        <p>&nbsp;&nbsp;加载中...</p>
+        <div class="mask-height"></div>
+    </div>
+    <script>
+        var $maskDown = document.getElementById('shadow-down'); // 向上
+        var $maskUp = document.getElementById('shadow-up'); // 向下
+        var initDownHeight = -150; // -60 - -150
+        var initUpHeight = -60; // -60 - -160
+        var isMaskUp = true; // 向上还是向下
+        var maskInterval = setInterval(function () {
+            if(isMaskUp){
+                initUpHeight -= 5;
+                $maskUp.setAttribute('transform','translate(-28.000000, '+initUpHeight+')');
+                if(initUpHeight<= -160){
+                    isMaskUp = false;
+                    initDownHeight = -150;// 重置
+                    $maskDown.setAttribute('transform','translate(-148.000000, '+initDownHeight+')');
+                    initUpHeight = -40; // 回到不可见位置
+                    $maskUp.setAttribute('transform','translate(-28.000000, '+initUpHeight+')');
+                }
+            }else{
+                initDownHeight += 5;
+                $maskDown.setAttribute('transform','translate(-148.000000, '+initDownHeight+')');
+                if(initDownHeight>= -60){
+                    isMaskUp = true;
+                    initUpHeight = -60;
+                    $maskUp.setAttribute('transform','translate(-28.000000, '+initUpHeight+')');
+                    initDownHeight = -260; // 回到不可见位置
+                    $maskDown.setAttribute('transform','translate(-148.000000, '+initDownHeight+')');
+                }
+            }
+        }, 50);
+
+    </script>
+</section>
+</body>
+</html>
