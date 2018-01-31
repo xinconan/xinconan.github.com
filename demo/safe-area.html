@@ -9,7 +9,14 @@
 <body>
     <script>
         function getTop() {
-            if (CSS.supports('padding-top: constant(safe-area-inset-top);env(safe-area-inset-top)')) {
+            if (CSS.supports('padding-top: constant(safe-area-inset-top)')) {
+                var div = document.createElement('div');
+                div.style.paddingTop = 'constant(safe-area-inset-top)';
+                document.body.appendChild(div);
+                var calculatedPadding =  parseInt(window.getComputedStyle(div).paddingTop);
+                document.body.removeChild(div);
+                alert(calculatedPadding);
+            }else if (CSS.supports('padding-top: env(safe-area-inset-top)')) {
                 var div = document.createElement('div');
                 div.style.paddingTop = 'env(safe-area-inset-top)';
                 document.body.appendChild(div);
