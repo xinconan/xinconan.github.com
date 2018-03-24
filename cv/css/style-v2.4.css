@@ -186,6 +186,14 @@ a.button { display: inline-block; }
 	0% { width: 0; }
 	100% { width: 90%; }
 }
+.tech-skill-list__item-nodejs {
+	width: 80%;
+	animation-name: bar-nodejs;
+}
+@keyframes bar-nodejs {
+	0% { width: 0; }
+	100% { width: 80%; }
+}
 .tech-skill-list__item-java {
 	width: 75%;
 	-webkit-animation-name: bar-java;
@@ -238,16 +246,16 @@ a.button { display: inline-block; }
 	0% { width: 0; }
 	100% { width: 55%; }
 }
-.tech-skill-list__item-photoshop {
+.tech-skill-list__item-python {
 	width: 50%;
-	-webkit-animation-name: bar-photoshop;
-	animation-name: bar-photoshop;
+	-webkit-animation-name: bar-python;
+	animation-name: bar-python;
 }
-@-webkit-keyframes bar-photoshop {
+@-webkit-keyframes bar-python {
 	0% { width: 0; }
 	100% { width: 50%; }
 }
-@keyframes bar-photoshop {
+@keyframes bar-python {
 	0% { width: 0; }
 	100% { width: 50%; }
 }
