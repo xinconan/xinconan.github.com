@@ -137,9 +137,8 @@
     </section>
 </div>
 
-<script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
 <script>
-$(function(){
+window.onload = function(){
     var canvas = document.getElementById('canvas'),
         ctx = canvas.getContext('2d'),
         cWidth = canvas.width,
@@ -249,10 +248,6 @@ $(function(){
     ctx.restore();
     })();
     
-
-
-
-
     // 画点
     function Dot(rgba) {
         this.x = 0;
@@ -266,7 +261,7 @@ $(function(){
             ctx.restore();
         };
     }
-});
+}
 </script>
 </body>
 
