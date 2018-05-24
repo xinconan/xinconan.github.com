@@ -91,7 +91,7 @@ a:hover { text-decoration: underline; }
 .tech-skill-list__item-nodejs { width: 75%; }
 .tech-skill-list__item-aspdotnet { width: 60%; }
 .tech-skill-list__item-sql { width: 55%; }
-.tech-skill-list__item-photoshop { width: 50%; }
+.tech-skill-list__item-python { width: 50%; }
 .tech-skill-list__item__name {
 	height: 34px;
 	line-height: 34px;
@@ -198,8 +198,8 @@ a:hover { text-decoration: underline; }
 .footer { border-top: 1px solid #e8e8e8; color: #888; font-size: 0.875em; }
 .footer .boundary { padding-top: 15px; }
 .footer__qrcode { float: left; }
-.footer__qrcode__img { width: 60px; height: 60px; float: left; }
-.footer__qrcode__text { margin: 7px 0 0 10px; float: left; }
+.footer__qrcode__img,.footer__wxcode__img { width: 60px; height: 60px; float: left; }
+.footer__qrcode__text,.footer__wxcode__text { margin: 7px 10px 0 10px; float: left; }
 .footer__copyright { margin-top: 7px; float: right; text-align: right;  }
-.footer__copyright p { text-align: left; }
+.footer__copyright p { text-align: right; }
 .footer__copyright__comment { font-size: 0.86em; }
